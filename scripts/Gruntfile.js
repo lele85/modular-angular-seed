@@ -27,5 +27,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-preprocess');
 
 	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
-	grunt.registerTask('serve', ['shell:serve']);
+	grunt.registerTask('serve', ['preprocess:all','shell:serve']);
 };

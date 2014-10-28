@@ -32,7 +32,7 @@ require([
 
 var initApplication = function() {
   require([
-    "modules/common/module","modules/second/module"
+    "modules/common/module","modules/first/module","modules/second/module"
   ], function(
     CommonModule,FirstModule,SecondModule
   ) {

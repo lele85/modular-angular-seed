@@ -102,6 +102,16 @@ module.exports = {
 				TEST : false
 			}
 		},
+		all : {
+			src: '<%= devDir %>/main.js',
+			dest: '<%= devDir %>/main.prod.js',
+			options: {
+				context: {
+					CUSTOMER_REQUIRE: '"modules/common/module","modules/first/module","modules/second/module"',
+					CUSTOMER_MODULES: 'CommonModule,FirstModule,SecondModule'
+				}
+			}
+		},
 		customer_1: {
 			src: '<%= devDir %>/main.js',
 			dest: '<%= devDir %>/main.prod.js',
