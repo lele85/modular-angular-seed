@@ -32,11 +32,21 @@ require([
 
 var initApplication = function() {
   require([
-
-  ], function() {
+    "modules/common/module",
+    "modules/first/module",
+    "modules/second/module"
+  ], function(
+    CommonModule,
+    FirstModule,
+    SecondModule
+  ) {
     var appName = "modular-angular-seed";
     var app = angular.module(
-      appName, []
+      appName, [
+        CommonModule,
+        FirstModule,
+        SecondModule
+      ]
     );
 
     angular.element().ready(function() {
