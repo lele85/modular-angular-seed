@@ -1,0 +1,32 @@
+{
+  "name": "modular-angular-seed",
+  "version": "0.0.1",
+  "authors": [
+    "emanuele.rampichini@gmail.com"
+  ],
+  "description": "Modular AngularJS Seed",
+  "main": "index.html",
+  "homepage": "https://github.com/lele85/modular-angular-seed",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../app/vendor",
+    "../bin",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "requirejs": "~2.1.11",
+    "angular": "~1.2.14",
+    "angular-route": "~1.2.14",
+    "angular-bootstrap": "~0.10.0",
+    "angular-touch": "~1.2.14",
+    "angular-mocks": "~1.2.14",
+    "angular-ui-router": "~0.2.10",
+    "underscore": "1.6.0",
+    "jquery": "1.10"
+  }
+}

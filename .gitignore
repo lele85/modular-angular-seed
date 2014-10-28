@@ -1,2 +1,3 @@
 bin
 scripts/node_modules
+app/vendor
