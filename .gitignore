@@ -1,3 +1,5 @@
 bin
 scripts/node_modules
+scripts/.sass-cache
 app/vendor
+app/css

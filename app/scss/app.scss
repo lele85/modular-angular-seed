@@ -1,0 +1,125 @@
+/* PFTPRO GUI15 03/04/2014 */
+
+/* -------------------------------------------------- 
+   Content
+-----------------------------------------------------
+:: Variables
+:: Mixin
+:: Operations
+:: @ SCSS Imports
+*/
+
+/* -----------------------------------------
+   Variables
+----------------------------------------- */
+/* Structure */
+
+
+/* -----------------------------------------
+   Mixin
+----------------------------------------- */
+
+@mixin box-sizing($valuesizing){
+box-sizing:$valuesizing;
+-moz-box-sizing:$valuesizing;}
+
+@mixin border-radius($radius) {
+-webkit-border-radius: $radius;
+-moz-border-radius: $radius;
+-ms-border-radius: $radius;
+-o-border-radius: $radius;
+border-radius: $radius;}
+
+@mixin border-radius-left($radius) {
+-webkit-border-bottom-left-radius:$radius;
+-webkit-border-top-left-radius:$radius;
+-moz-border-radius-bottomleft:$radius;
+-moz-border-radius-topleft:$radius;
+-o-border-radius-bottomleft:$radius;
+-o-border-radius-topleft:$radius;
+border-bottom-left-radius:$radius;
+border-top-left-radius:$radius;}
+
+@mixin border-radius-right($radius) {
+-webkit-border-bottom-right-radius:$radius;
+-webkit-border-top-right-radius:$radius;
+-moz-border-radius-bottomright:$radius;
+-moz-border-radius-topright:$radius;
+-o-border-radius-bottomright:$radius;
+-o-border-radius-topright:$radius;
+border-bottom-right-radius:$radius;
+border-top-right-radius:$radius;}
+
+@mixin border-radius-top($radius) {
+-webkit-border-top-right-radius:$radius;
+-webkit-border-top-left-radius:$radius;
+-moz-border-radius-topright:$radius;
+-moz-border-radius-topleft:$radius;
+-o-border-radius-topright:$radius;
+-o-border-radius-topleft:$radius;
+border-top-right-radius:$radius;
+border-top-left-radius:$radius;}
+
+@mixin box-shadow($valueshadow){
+-moz-box-shadow: $valueshadow;
+-webkit-box-shadow: $valueshadow;
+box-shadow: $valueshadow;}
+
+@mixin user-select($valueuserselect){
+-webkit-user-select: $valueuserselect;
+-ms-user-select: $valueuserselect;
+user-select: $valueuserselect;}
+
+@mixin appearance($valueappearance){
+-webkit-appearance:$valueappearance;
+-moz-appearance:$valueappearance;
+appearance:$valueappearance;}
+
+@mixin transition($valuetransition){
+transition:$valuetransition;
+-webkit-transition:$valuetransition;}
+
+@mixin transition-delay($valuetransition-delay){
+transition-delay: $valuetransition-delay;
+-webkit-transition-delay: $valuetransition-delay;}
+
+@mixin transition-timing($valuetransition-timing){
+transition-timing-function: $valuetransition-timing;
+-webkit-transition-timing-function: $valuetransition-timing;}
+
+@mixin transform-scale($valuetransform){
+-ms-transform: scale($valuetransform);
+-webkit-transform: scale($valuetransform);
+transform: scale($valuetransform);}
+
+@mixin transform-rotate($valuetransform-rotate){
+-ms-transform: rotate($valuetransform-rotate);
+-webkit-transform: rotate($valuetransform-rotate);
+transform: rotate($valuetransform-rotate);}
+
+
+/* -----------------------------------------
+   Operations
+----------------------------------------- */
+/* Box Sizing */
+@for $i from 1 through 50 {
+  .Size#{$i * 10} { width: 10px * $i; }
+}
+@for $i from 1 through 100 {
+  .SizeFluid#{$i} { width: 1% * $i; }
+}
+@for $i from 1 through 50 {
+  .SizeHeight#{$i * 10} { height: 10px * $i; }
+}
+/* Font Sizing */
+@for $i from 1 through 30 {
+  .FontSize#{$i} { font-size: 1px * $i; }
+}
+
+
+/* -----------------------------------------
+   @ SCSS Imports
+----------------------------------------- */
+@import '../modules/common/style';
+@import '../modules/common/style';
+@import '../modules/common/style';
