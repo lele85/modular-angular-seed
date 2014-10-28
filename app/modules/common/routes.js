@@ -1,14 +1,16 @@
 define([], function() {
 	"use strict";
-	var State = function($stateProvider) {
+	var State = function($stateProvider, $urlRouterProvider) {
 		$stateProvider.state('error', {
 			url: "/error",
 			templateUrl: 'modules/common/view/error.tpl.html'
 		}).state('dashboard', {
 			url: "/",
 			templateUrl: 'modules/common/view/dashboard.tpl.html',
-			controller : 'DashboardController'
+			controller: 'DashboardController'
 		});
+
+		$urlRouterProvider.otherwise('/');
 	};
-	return ["$stateProvider", State];
+	return ["$stateProvider",'$urlRouterProvider', State];
 });
