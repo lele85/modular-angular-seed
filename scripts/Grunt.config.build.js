@@ -1,3 +1,6 @@
+var customersModulesConfig = require("./Grunt.config.build.customers.js");
+var grunt = require('grunt');
+var customer = grunt.option('customer');
 module.exports = {
 	clean: {
 		afterBuild: ['<%= buildDir %>/templates.js', '<%= buildDir %>/app.js', '<%= buildDir %>/tmp'],
@@ -102,36 +105,15 @@ module.exports = {
 				TEST : false
 			}
 		},
-		all : {
+		build : {
 			src: '<%= devDir %>/main.js',
 			dest: '<%= devDir %>/main.prod.js',
 			options: {
 				context: {
-					CUSTOMER_REQUIRE: '"modules/common/module","modules/first/module","modules/second/module"',
-					CUSTOMER_MODULES: 'CommonModule,FirstModule,SecondModule'
+					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).paths,
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).names
 				}
 			}
-		},
-		customer_1: {
-			src: '<%= devDir %>/main.js',
-			dest: '<%= devDir %>/main.prod.js',
-			options: {
-				context: {
-					CUSTOMER_REQUIRE: '"modules/common/module","modules/first/module"',
-					CUSTOMER_MODULES: 'CommonModule,FirstModule'
-				}
-			}
-		},
-		customer_2: {
-			src: '<%= devDir %>/main.js',
-			dest: '<%= devDir %>/main.prod.js',
-			options: {
-				context: {
-					CUSTOMER_REQUIRE: '"modules/common/module","modules/second/module"',
-					CUSTOMER_MODULES: 'CommonModule,SecondModule'
-				}
-			}
-		},
-
+		}
 	}
 }

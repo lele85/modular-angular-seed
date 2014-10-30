@@ -32,14 +32,14 @@ require([
 
 var initApplication = function() {
   require([
-    /* @echo CUSTOMER_REQUIRE */
+/* @echo CUSTOMER_REQUIRE */
   ], function(
-    /* @echo CUSTOMER_MODULES */
+/* @echo CUSTOMER_MODULES */
   ) {
     var appName = "modular-angular-seed";
     var app = angular.module(
       appName, [
-        /* @echo CUSTOMER_MODULES */
+/* @echo CUSTOMER_MODULES */
       ]
     );
 

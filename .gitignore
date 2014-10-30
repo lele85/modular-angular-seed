@@ -3,3 +3,4 @@ scripts/node_modules
 scripts/.sass-cache
 app/vendor
 app/css
+app/main.prod.js
