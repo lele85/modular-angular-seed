@@ -84,7 +84,7 @@ module.exports = {
 			dest: '<%= buildDir %>/templates.js',
 			options: {
 				bootstrap: function(module, script) {
-					return 'var initTemplates = function(){ angular.module("modular-angular-seed").run(["$templateCache", function($templateCache) {' + script + ' }]);};';
+					return 'var initTemplates = function(){ angular.module("' + grunt.option('projectName') + '").run(["$templateCache", function($templateCache) {' + script + ' }]);};';
 				},
 				htmlmin: {
 					collapseBooleanAttributes: true,
