@@ -115,5 +115,15 @@ module.exports = {
 				}
 			}
 		}
+	},
+	sass: {
+	    dist: {
+	      files: {
+	      	"../app/css/app.css":"../app/scss/app.scss",
+	      	"../app/css/common.css":"../app/modules/common/style.scss",
+	      	"../app/css/first.css":"../app/modules/first/style.scss",
+	      	"../app/css/second.css":"../app/modules/second/style.scss"
+	      }
+	    }
 	}
 };
