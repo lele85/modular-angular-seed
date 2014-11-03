@@ -7,6 +7,8 @@ module.exports = function(grunt) {
 		buildDir: "../bin"
 	};
 
+	grunt.option('projectName',config.pkg.name);
+
 	config = _.merge(config, require("./Grunt.config.install.js"));
 	config = _.merge(config, require("./Grunt.config.serve.js"));
 	config = _.merge(config, require("./Grunt.config.style.js"));
