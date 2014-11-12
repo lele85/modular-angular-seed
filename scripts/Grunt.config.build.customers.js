@@ -21,9 +21,21 @@ module.exports = {
 				name: app_module
 			};
 		});
+		var app_tests = config[customer].map(function(app_module) {
+			return {
+				path: '"' + modules_paths[app_module] + '_test"',
+				name: app_module + "Test"
+			};
+		});
 		return {
-			paths: _.pluck(app_modules, "path").join(',\n'),
-			names: _.pluck(app_modules, "name").join(',\n'),
+			app_modules : {
+				paths: _.pluck(app_modules, "path").join(',\n'),
+				names: _.pluck(app_modules, "name").join(',\n'),
+			},
+			test_modules : {
+				paths: _.pluck(app_tests, "path").join(',\n'),
+				names: _.pluck(app_tests, "name").join(',\n'),
+			}
 		};
 	}
 };

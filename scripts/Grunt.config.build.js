@@ -110,8 +110,10 @@ module.exports = {
 			dest: '<%= devDir %>/main.prod.js',
 			options: {
 				context: {
-					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).paths,
-					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).names
+					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).app_modules.paths,
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).app_modules.names,
+					CUSTOMER_REQUIRE_TEST: "",
+					CUSTOMER_MODULES_TEST: "",
 				}
 			}
 		}

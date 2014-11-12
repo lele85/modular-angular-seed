@@ -1,13 +1,9 @@
 require.config({
-  // @if TEST
   baseUrl: "/base",
-  // @endif
   paths: {
     jquery: 'vendor/jquery/dist/jquery',
     angular: 'vendor/angular/angular',
-    // @if TEST
     angularMocks: 'vendor/angular-mocks/angular-mocks',
-    // @endif
     angularBootstrap: 'vendor/angular-bootstrap/ui-bootstrap-tpls',
     angularUiRouter: 'vendor/angular-ui-router/release/angular-ui-router',
     angularTouch: 'vendor/angular-touch/angular-touch',
@@ -18,9 +14,7 @@ require.config({
       'deps': ['jquery'],
       'exports': 'angular'
     },
-    // @if TEST
     'angularMocks': ['angular'],
-    // @endif
     'angularBootstrap': ['angular'],
     'angularUiRouter': ['angular'],
     'angularTouch': ['angular']
@@ -30,9 +24,7 @@ require.config({
 
 require([
   "angular",
-  // @if TEST
   "angularMocks",
-  // @endif
   "angularBootstrap",
   "angularUiRouter",
   "angularTouch",
@@ -44,38 +36,36 @@ require([
 
 var initApplication = function() {
   require([
-/* @echo CUSTOMER_REQUIRE */
-// @if TEST
+"modules/common/module",
+"modules/first/module",
+"modules/second/module"
 ,
-// @endif
-/* @echo CUSTOMER_REQUIRE_TEST */
+"modules/common/module_test",
+"modules/first/module_test",
+"modules/second/module_test"
   ], function(
-/* @echo CUSTOMER_MODULES */
-// @if TEST
+CommonModule,
+FirstModule,
+SecondModule
 ,
-// @endif
-/* @echo CUSTOMER_MODULES_TEST */
+CommonModuleTest,
+FirstModuleTest,
+SecondModuleTest
   ) {
     var appName = "modular-angular-seed";
     var app = angular.module(
       appName, [
-/* @echo CUSTOMER_MODULES */
+CommonModule,
+FirstModule,
+SecondModule
       ]
     );
 
-     // @if TEST
     window.__karma__.start();
-    // @endif
-
     if (typeof initTemplates === 'function') {
       initTemplates();
     }
 
-    // @if !TEST
-    angular.element().ready(function() {
-      angular.bootstrap(document, [appName]);
-    });
-    // @endif
     
   });
 };

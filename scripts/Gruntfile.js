@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 	config = _.merge(config, require("./Grunt.config.serve.js"));
 	config = _.merge(config, require("./Grunt.config.style.js"));
 	config = _.merge(config, require("./Grunt.config.build.js"));
+	config = _.merge(config, require("./Grunt.config.test.js"));
 
 	grunt.initConfig(config);
 
@@ -29,6 +30,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-angular-templates');
 	grunt.loadNpmTasks('grunt-preprocess');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
 	grunt.registerTask('serve', minification_tasks.concat(['shell:serve']));
@@ -47,4 +49,5 @@ module.exports = function(grunt) {
 		'requirejs',
 		'clean:afterBuild'
 	]);
+	grunt.registerTask('unittest', ["preprocess:test","karma:unit"]);
 };
