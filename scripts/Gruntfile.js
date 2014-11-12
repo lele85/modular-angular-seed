@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 	var _ = require('lodash');
+	var minified = grunt.option('minified') ? true : false;
+	var minification_tasks = minified ? ["build"] : ["preprocess:build"];
 
 	var config = {
 		pkg: grunt.file.readJSON('package.json'),
@@ -29,7 +31,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-preprocess');
 
 	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
-	grunt.registerTask('serve', ['preprocess:build', 'shell:serve']);
+	grunt.registerTask('serve', minification_tasks.concat(['shell:serve']));
 	grunt.registerTask('build', [
 		'preprocess:build',
 		'sass',

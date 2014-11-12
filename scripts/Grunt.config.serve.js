@@ -1,6 +1,6 @@
 var grunt = require('grunt');
-var minified = grunt.option('minified') || "no";
-var env = minified === "yes" ? "PROD" : "DEV";
+var minified = grunt.option('minified') ? true : false;
+var env = minified ? "PROD" : "DEV";
 
 module.exports = {
 	shell: {

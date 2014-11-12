@@ -1,11 +1,11 @@
 require.config({
   paths: {
-    jquery: 'vendor/jquery/jquery.min',
+    jquery: 'vendor/jquery/dist/jquery',
     angular: 'vendor/angular/angular',
-    angularBootstrap: 'vendor/angular-bootstrap/ui-bootstrap-tpls.min',
+    angularBootstrap: 'vendor/angular-bootstrap/ui-bootstrap-tpls',
     angularUiRouter: 'vendor/angular-ui-router/release/angular-ui-router',
-    angularTouch: 'vendor/angular-touch/angular-touch.min',
-    underscore: 'vendor/underscore/underscore'
+    angularTouch: 'vendor/angular-touch/angular-touch',
+    lodash: 'vendor/lodash/dist/lodash'
   },
   shim: {
     'angular': {
@@ -24,7 +24,7 @@ require([
   "angularBootstrap",
   "angularUiRouter",
   "angularTouch",
-  "underscore"
+  "lodash"
 ], function() {
   initApplication();
 });
