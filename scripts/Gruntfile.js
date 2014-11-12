@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 		buildDir: "../bin"
 	};
 
-	grunt.option('projectName',config.pkg.name);
+	grunt.option('projectName', config.pkg.name);
 
 	config = _.merge(config, require("./Grunt.config.install.js"));
 	config = _.merge(config, require("./Grunt.config.serve.js"));
@@ -29,5 +29,20 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-preprocess');
 
 	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
-	grunt.registerTask('serve', ['preprocess:build','shell:serve']);
+	grunt.registerTask('serve', ['preprocess:build', 'shell:serve']);
+	grunt.registerTask('build', [
+		'preprocess:build',
+		'sass',
+		'clean:build',
+		'copy:index',
+		'copy:asset',
+		'copy:fonts',
+		'useminPrepare',
+		'usemin',
+		'concat',
+		'cssmin',
+		'ngtemplates',
+		'requirejs',
+		'clean:afterBuild'
+	]);
 };
