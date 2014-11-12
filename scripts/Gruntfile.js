@@ -34,9 +34,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-protractor-runner');
 	
 
-	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
+	grunt.registerTask('install', ['shell:npm_install','clean:vendor','shell:bower_install']);
 	grunt.registerTask('serve', minification_tasks.concat(['shell:serve']));
 	grunt.registerTask('build', [
+		'clean:vendor',
+		'shell:bower_install',
 		'preprocess:build',
 		'sass',
 		'clean:build',

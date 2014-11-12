@@ -7,7 +7,8 @@ module.exports = {
 		build: ['<%= buildDir %>'],
 		options: {
 			force: true
-		}
+		},
+		vendor : ['<%= devDir %>/vendor/**']
 	},
 	copy: {
 		index: {
