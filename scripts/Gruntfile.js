@@ -31,6 +31,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-angular-templates');
 	grunt.loadNpmTasks('grunt-preprocess');
 	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-protractor-runner');
+	
 
 	grunt.registerTask('install', ['shell:npm_install', 'shell:bower_install']);
 	grunt.registerTask('serve', minification_tasks.concat(['shell:serve']));
@@ -49,5 +51,9 @@ module.exports = function(grunt) {
 		'requirejs',
 		'clean:afterBuild'
 	]);
-	grunt.registerTask('unittest', ["preprocess:test","karma:unit"]);
+	grunt.registerTask('test_unit', ["preprocess:test","karma:unit"]);
+	grunt.registerTask('test_e2e', ["protractor:phantomjs"]);
+	grunt.registerTask('selenium', ["shell:webdriver_start"]);
+  	grunt.registerTask('selenium_update', ["shell:webdriver_update"]);
+
 };

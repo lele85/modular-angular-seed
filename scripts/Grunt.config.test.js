@@ -22,6 +22,20 @@ module.exports = {
 			singleRun: !watch
 		}
 	},
+	protractor: {
+		options: {
+			keepAlive: true, // If false, the grunt process stops when the test fails.
+			noColor: false, // If true, protractor will not use colors in its output.
+			configFile: "./protractor.config.js",
+		},
+		phantomjs: {
+			options: {
+				args: {
+					browser: "phantomjs"
+				}
+			}
+		}
+	},
 	preprocess: {
 		test: {
 			options: {
@@ -30,7 +44,7 @@ module.exports = {
 					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).app_modules.names,
 					CUSTOMER_REQUIRE_TEST: customersModulesConfig.getGustomerModules(customer).test_modules.paths,
 					CUSTOMER_MODULES_TEST: customersModulesConfig.getGustomerModules(customer).test_modules.names,
-					TEST : true
+					TEST: true
 				}
 			},
 			src: '<%= devDir %>/main.js',
