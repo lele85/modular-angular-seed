@@ -1,15 +1,18 @@
 var grunt = require('grunt');
 var minified = grunt.option('minified') ? true : false;
-var env = minified ? "PROD" : "DEV";
+var serverDir = minified ? "../bin" : "../app";
 
 module.exports = {
-	shell: {
-		options: {
-			stdout: true
-		},
-		serve: {
-			stdin: true,
-			command: 'node_modules/.bin/nodemon server/app.js '+ env
-		}
-	}
+	connect: {
+      server: {
+        options: {
+			port: 8000,
+			keepalive: true,
+			base:serverDir,
+			onCreateServer: function() {
+			 console.log("Serving " + (minified ? "Production" : "Development") + " application");
+			}
+        }
+      }
+    }
 };
