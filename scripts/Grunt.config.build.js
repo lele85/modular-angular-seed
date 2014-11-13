@@ -8,7 +8,8 @@ module.exports = {
 		options: {
 			force: true
 		},
-		vendor : ['<%= devDir %>/vendor/**']
+		vendor : ['<%= devDir %>/vendor/**'],
+		lib:['lib']
 	},
 	copy: {
 		index: {

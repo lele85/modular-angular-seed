@@ -36,11 +36,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower-task');
 	
 
-	grunt.registerTask('install', ['shell:npm_install','clean:vendor','bower:install']);
+	grunt.registerTask('install', ['shell:npm_install','clean:vendor','bower:install','clean:lib']);
 	grunt.registerTask('serve', minification_tasks.concat(['connect:server']));
 	grunt.registerTask('build', [
 		'clean:vendor',
 		'bower:install',
+		'clean:lib',
 		'preprocess:build',
 		'sass',
 		'clean:build',
