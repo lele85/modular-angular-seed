@@ -36,9 +36,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower-task');
 	
 
-	grunt.registerTask('install', ['shell:npm_install','clean:vendor','bower:install','clean:lib']);
-	grunt.registerTask('serve', minification_tasks.concat(['connect:server']));
-	grunt.registerTask('build', [
+	grunt.registerTask('install', "Aligns dev and bower dependencies. You should run this task after any git pull.", ['shell:npm_install','clean:vendor','bower:install','clean:lib']);
+	grunt.registerTask('serve', "Serve client application and any mock service defined in /scripts/server/app.js. Invoked with --minified builds and serve the minified version of the frontend.", minification_tasks.concat(['connect:server']));
+	grunt.registerTask('build', "Perform a custom build of the app. With --customer you can chose wich composition of modules you want to bundle. Customer definitions are located in /scripts/Grunt.config.build.customers.js. If no customer is passed all modules are bundled together.", [
 		'clean:vendor',
 		'bower:install',
 		'clean:lib',
@@ -56,9 +56,9 @@ module.exports = function(grunt) {
 		'requirejs',
 		'clean:afterBuild'
 	]);
-	grunt.registerTask('test_unit', ["preprocess:test","karma:unit"]);
-	grunt.registerTask('test_e2e', ["protractor:phantomjs"]);
-	grunt.registerTask('selenium', ["shell:webdriver_start"]);
-  	grunt.registerTask('selenium_update', ["shell:webdriver_update"]);
+	grunt.registerTask('test_unit', "Runs unit tests with karma. If you want to keep karma watching for file modification you can use the option --watch", ["preprocess:test","karma:unit"]);
+	grunt.registerTask('test_e2e', "Runs e2e protractor specs. In order to perform e2e test you should serve a version of the app with grunt server and selenium server.", ["protractor:phantomjs"]);
+	grunt.registerTask('selenium', "Starts selenium server", ["shell:webdriver_start"]);
+  	grunt.registerTask('selenium_update', "Download and updates selenium web runner tasks", ["shell:webdriver_update"]);
 
 };
