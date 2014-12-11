@@ -24,7 +24,7 @@ module.exports = {
 		});
 		var testModules = config[customer].map(function(appModule) {
 			return {
-				path: "\"" + modulesDir[appModule] + "module_test\"",
+				path: "\"" + modulesDir[appModule] + "/module_test\"",
 				name: appModule + "Test",
 				style: "@import \"../" + modulesDir[appModule] + "/style\";"
 			};
