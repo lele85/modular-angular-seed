@@ -1,0 +1,14 @@
+{
+    "env": {
+        "amd": true,
+        "browser": true,
+        "jasmine" : true
+    },
+    "globals": {
+        "_": true,
+        "angular": true
+    },
+    "rules": {
+        "strict": 0
+    }
+}

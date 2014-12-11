@@ -1,42 +1,42 @@
 var customersModulesConfig = require("./Grunt.config.build.customers.js");
-var grunt = require('grunt');
-var customer = grunt.option('customer');
+var grunt = require("grunt");
+var customer = grunt.option("customer");
 module.exports = {
 	clean: {
-		afterBuild: ['<%= buildDir %>/templates.js', '<%= buildDir %>/app.js', '<%= buildDir %>/tmp'],
-		build: ['<%= buildDir %>'],
+		afterBuild: ["<%= buildDir %>/templates.js", "<%= buildDir %>/app.js", "<%= buildDir %>/tmp"],
+		build: ["<%= buildDir %>"],
 		options: {
 			force: true
 		},
-		vendor : ['<%= devDir %>/vendor/**'],
-		lib:['lib']
+		vendor: ["<%= devDir %>/vendor/**"],
+		lib: ["lib"]
 	},
 	copy: {
 		index: {
 			files: [{
-				src: '<%= devDir %>/index.html',
-				dest: '<%= buildDir %>/index.html'
+				src: "<%= devDir %>/index.html",
+				dest: "<%= buildDir %>/index.html"
 			}]
 		},
 		asset: {
 			files: [{
-				src: ['**/*.png', '!vendor/**'],
-				cwd: '<%= devDir %>',
-				dest: '<%= buildDir %>/',
+				src: ["**/*.png", "!vendor/**"],
+				cwd: "<%= devDir %>",
+				dest: "<%= buildDir %>/",
 				expand: true
 			}]
 		},
 		fonts: {
 			files: [{
 				expand: true,
-				cwd: '<%= devDir %>/vendor/bootstrap/fonts/',
-				src: '*',
-				dest: '<%= buildDir %>/fonts'
+				cwd: "<%= devDir %>/vendor/bootstrap/fonts/",
+				src: "*",
+				dest: "<%= buildDir %>/fonts"
 			}, {
 				expand: true,
-				cwd: '<%= devDir %>/',
-				src: 'modules/*/fonts/*',
-				dest: '<%= buildDir %>'
+				cwd: "<%= devDir %>/",
+				src: "modules/*/fonts/*",
+				dest: "<%= buildDir %>"
 			}]
 		}
 	},
@@ -44,14 +44,14 @@ module.exports = {
 		compile: {
 			options: {
 				baseUrl: "<%= devDir %>",
-				out: '<%= buildDir %>/app.min.js',
+				out: "<%= buildDir %>/app.min.js",
 				mainConfigFile: "<%= devDir %>/main.prod.js",
-				name: 'main.prod',
+				name: "main.prod",
 				include: [
-					'vendor/requirejs/require',
-					'<%= buildDir %>/templates.js'
+					"vendor/requirejs/require",
+					"<%= buildDir %>/templates.js"
 				],
-				optimize: 'uglify2',
+				optimize: "uglify2",
 				generateSourceMaps: true,
 				preserveLicenseComments: false,
 				useSourceUrl: false
@@ -59,15 +59,15 @@ module.exports = {
 		}
 	},
 	useminPrepare: {
-		html: '<%= devDir %>/index.html',
+		html: "<%= devDir %>/index.html",
 		options: {
-			dest: '<%= buildDir %>',
-			staging: '<%= buildDir %>/tmp',
+			dest: "<%= buildDir %>",
+			staging: "<%= buildDir %>/tmp",
 			flow: {
 				html: {
 					steps: {
-						'js': [],
-						'css': ['concat', 'cssmin']
+						"js": [],
+						"css": ["concat", "cssmin"]
 					},
 					post: []
 				}
@@ -76,17 +76,17 @@ module.exports = {
 	},
 
 	usemin: {
-		html: '<%= buildDir %>/index.html'
+		html: "<%= buildDir %>/index.html"
 	},
 
 	ngtemplates: {
 		retirementPlannning: {
-			cwd: '<%= devDir %>',
-			src: '**/*.tpl.html',
-			dest: '<%= buildDir %>/templates.js',
+			cwd: "<%= devDir %>",
+			src: "**/*.tpl.html",
+			dest: "<%= buildDir %>/templates.js",
 			options: {
 				bootstrap: function(module, script) {
-					return 'var initTemplates = function(){ angular.module("' + grunt.option('projectName') + '").run(["$templateCache", function($templateCache) {' + script + ' }]);};';
+					return "var initTemplates = function(){ angular.module(\"" + grunt.option("projectName") + "\").run([\"$templateCache\", function($templateCache) {" + script + " }]);};";
 				},
 				htmlmin: {
 					collapseBooleanAttributes: true,
@@ -104,18 +104,18 @@ module.exports = {
 	preprocess: {
 		options: {
 			context: {
-				TEST : false
+				TEST: false
 			}
 		},
-		build : {
-			src: '<%= devDir %>/main.js',
-			dest: '<%= devDir %>/main.prod.js',
+		build: {
+			src: "<%= devDir %>/main.js",
+			dest: "<%= devDir %>/main.prod.js",
 			options: {
 				context: {
-					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).app_modules.paths,
-					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).app_modules.names,
+					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).appModules.paths,
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.names,
 					CUSTOMER_REQUIRE_TEST: "",
-					CUSTOMER_MODULES_TEST: "",
+					CUSTOMER_MODULES_TEST: ""
 				}
 			}
 		}

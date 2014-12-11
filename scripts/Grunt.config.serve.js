@@ -1,5 +1,5 @@
-var grunt = require('grunt');
-var minified = grunt.option('minified') ? true : false;
+var grunt = require("grunt");
+var minified = grunt.option("minified") ? true : false;
 var serverDir = minified ? "../bin" : "../app";
 
 module.exports = {
@@ -8,9 +8,9 @@ module.exports = {
         options: {
 			port: 8000,
 			keepalive: true,
-			base:serverDir,
+			base: serverDir,
 			onCreateServer: function() {
-			 console.log("Serving " + (minified ? "Production" : "Development") + " application");
+				console.log("Serving " + (minified ? "Production" : "Development") + " application");
 			}
         }
       }

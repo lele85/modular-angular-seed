@@ -4,12 +4,12 @@ module.exports = {
 			stdout: true
 		},
 		npm_install: {
-			command: 'npm install'
+			command: "npm install"
 		}
 	},
 	bower: {
 		install: {
-			targetDir:'../app/vendor'
+			targetDir: "../app/vendor"
 		}
 	}
 };
