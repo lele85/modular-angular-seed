@@ -5,6 +5,8 @@ before_install:
   - "npm install -g grunt-cli"
   - "npm install -g jasmine-node"
 install:
-  - "cd scripts && grunt install"
+  - "cd scripts"
+  - "npm install"
+  - "grunt install"
 script:
   - "grunt test_seed"
