@@ -11,4 +11,4 @@ install:
   - "npm install"
   - "grunt install"
 script:
-  - "grunt test_seed"
+  - "npm test"
