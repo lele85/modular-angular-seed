@@ -1,6 +1,8 @@
 Modular AngularJS Seed
 ======================
 
+[![Build Status](https://travis-ci.org/lele85/modular-angular-seed.svg?branch=master)](https://travis-ci.org/lele85/modular-angular-seed)
+
 Modular Angular JS Seed is a collection of tools and best practice packed up together in order to mantain a clean project structure. The main goal of the project are:
 
 CODEBASE CONSISTENCY AND MANTAINABILITY
