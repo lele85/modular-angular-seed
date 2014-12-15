@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 	config = _.merge(config, require("./Grunt.config.style.js"));
 	config = _.merge(config, require("./Grunt.config.build.js"));
 	config = _.merge(config, require("./Grunt.config.test.js"));
+	config = _.merge(config, require("./Grunt.config.test_seed.js"));
 
 	grunt.initConfig(config);
 
@@ -60,5 +61,6 @@ module.exports = function(grunt) {
 	grunt.registerTask("test_e2e", "Runs e2e protractor specs. In order to perform e2e test you should serve a version of the app with grunt server and selenium server.", ["protractor:phantomjs"]);
 	grunt.registerTask("selenium", "Starts selenium server", ["shell:webdriver_start"]);
 	grunt.registerTask("selenium_update", "Download and updates selenium web runner tasks", ["shell:webdriver_update"]);
+	grunt.registerTask("test_seed", "", ["shell:testSeed"]);
 
 };
