@@ -14,8 +14,4 @@ describe("Modular seed", function() {
 			})
 		});
 	});
-
-	it("Test build failure", function(){
-		expect(true).toBe(false);
-	});
 });
