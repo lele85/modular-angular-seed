@@ -1,0 +1,9 @@
+{
+  "name": "modular-angular-seed",
+  "version": "0.0.1",
+  "description": "Angular Modular Seed",
+  "scripts": {
+  	"test": "cd scripts && jasmine-node test"
+  },
+  "author": "emanuele.rampichini@gmail.com"
+}
