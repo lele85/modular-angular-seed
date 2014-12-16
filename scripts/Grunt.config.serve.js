@@ -10,7 +10,7 @@ module.exports = {
 			keepalive: true,
 			base: serverDir,
 			onCreateServer: function() {
-				console.log("Serving " + (minified ? "Production" : "Development") + " application");
+				grunt.log.ok(["Serving " + (minified ? "Production" : "Development") + " application"]);
 			}
         }
       }

@@ -1,5 +1,3 @@
-var grunt = require("grunt");
-
 module.exports = {
 	shell: {
 		options: {

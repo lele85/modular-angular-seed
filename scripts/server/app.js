@@ -1,23 +1,18 @@
 var express = require("express"),
-	app = express();
+	app = express(),
+	process = require("process");
 
 var env = {
 	"PROD": {
-		directory: __dirname + '/../../bin/',
+		directory: __dirname + "/../../bin/",
 		message: "\nSERVING MINIFIED APP"
 	},
 	"DEV": {
-		directory: __dirname + '/../../app/',
+		directory: __dirname + "/../../app/",
 		message: "\nSERVING NOT MINIFIED DEV APP"
 	}
 };
 
-var selected_env = process.argv[2] || 'DEV';
-
-console.log(env[selected_env].message);
-
-app.use(express.static(env[selected_env].directory));
-
-
-console.log("http://localhost:8000");
+var selectedEnv = process.argv[2] || "DEV";
+app.use(express.static(env[selectedEnv].directory));
 app.listen(8000);

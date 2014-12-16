@@ -8,10 +8,10 @@ module.exports = {
 		options: {
 			stdout: true
 		},
-		webdriver_update: {
+		"webdriver_update": {
 			command: "node node_modules/protractor/bin/webdriver-manager update"
 		},
-		webdriver_start: {
+		"webdriver_start": {
 			command: "node node_modules/protractor/bin/webdriver-manager start"
 		}
 	},

@@ -3,7 +3,7 @@ module.exports = {
 		options: {
 			stdout: true
 		},
-		npm_install: {
+		"npm_install": {
 			command: "npm install"
 		}
 	},
