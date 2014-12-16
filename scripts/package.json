@@ -36,10 +36,12 @@
         "phantomjs": "~1.9.7-8",
         "protractor": "~0.18.0",
         "proxy-middleware": "*",
-        "request": "*"
+        "request": "*",
+        "chai" : "*",
+        "mocha" : "*"
     },
     "scripts": {
-        "test": "jasmine-node test/"
+        "test": "node node_modules/protractor/bin/webdriver-manager update && ./node_modules/.bin/mocha test/"
     },
     "author": "emanuele.rampichini@gmail.com"
 }
