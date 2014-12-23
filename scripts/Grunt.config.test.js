@@ -38,17 +38,22 @@ module.exports = {
 	},
 	preprocess: {
 		test: {
+			files: {
+				"<%= devDir %>/main.test.js" : "<%= devDir %>/main.js",
+				"<%= devDir %>/systemjs.config.test.js" : "<%= devDir %>/systemjs.config.js",
+				"<%= devDir %>/systemjs.main.test.js" : "<%= devDir %>/systemjs.main.js"
+			},
 			options: {
 				context: {
 					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).appModules.paths,
-					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.names,
 					CUSTOMER_REQUIRE_TEST: customersModulesConfig.getGustomerModules(customer).testModules.paths,
-					CUSTOMER_MODULES_TEST: customersModulesConfig.getGustomerModules(customer).testModules.names,
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.name_vars,
+					CUSTOMER_MODULES_TEST: customersModulesConfig.getGustomerModules(customer).testModules.name_vars,
+					CUSTOMER_IMPORT: customersModulesConfig.getGustomerModules(customer).appModules.imports,
+					CUSTOMER_IMPORT_TEST: customersModulesConfig.getGustomerModules(customer).testModules.imports,
 					TEST: true
 				}
-			},
-			src: "<%= devDir %>/main.js",
-			dest: "<%= devDir %>/main.test.js"
+			}
 		}
 	}
 };

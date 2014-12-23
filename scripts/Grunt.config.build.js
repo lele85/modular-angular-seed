@@ -3,7 +3,7 @@ var grunt = require("grunt");
 var customer = grunt.option("customer");
 module.exports = {
 	clean: {
-		afterBuild: ["<%= buildDir %>/templates.js", "<%= buildDir %>/app.js", "<%= buildDir %>/tmp"],
+		afterBuild: ["<%= buildDir %>/templates.js", "<%= buildDir %>/all.js", "<%= buildDir %>/tmp","<%= buildDir %>/vendor", "<%= buildDir %>/systemjs.config.prod.js"],
 		build: ["<%= buildDir %>"],
 		options: {
 			force: true
@@ -16,6 +16,26 @@ module.exports = {
 			files: [{
 				src: "<%= devDir %>/index.html",
 				dest: "<%= buildDir %>/index.html"
+			}]
+		},
+		css: {
+			files: [{
+				src: "<%= devDir %>/css/app.css",
+				dest: "<%= buildDir %>/css/app.css"
+			}]
+		},
+		vendor : {
+			files: [{
+				src: ["**"],
+				cwd: "<%= devDir %>/vendor",
+				dest: "<%= buildDir %>/vendor",
+				expand: true
+			}]
+		},
+		systemjs : {
+			files: [{
+				src: "<%= devDir %>/systemjs.config.prod.js",
+				dest: "<%= buildDir %>/systemjs.config.prod.js"
 			}]
 		},
 		asset: {
@@ -59,14 +79,14 @@ module.exports = {
 		}
 	},
 	useminPrepare: {
-		html: "<%= devDir %>/index.html",
+		html: "<%= buildDir %>/index.html",
 		options: {
 			dest: "<%= buildDir %>",
 			staging: "<%= buildDir %>/tmp",
 			flow: {
 				html: {
 					steps: {
-						"js": [],
+						"js": ["concat","uglifyjs"],
 						"css": ["concat", "cssmin"]
 					},
 					post: []
@@ -108,14 +128,20 @@ module.exports = {
 			}
 		},
 		build: {
-			src: "<%= devDir %>/main.js",
-			dest: "<%= devDir %>/main.prod.js",
+			files: {
+				"<%= buildDir %>/index.html": "<%= devDir %>/index.html",
+				"<%= devDir %>/main.prod.js": "<%= devDir %>/main.js",
+				"<%= devDir %>/systemjs.config.prod.js": "<%= devDir %>/systemjs.config.js",
+				"<%= devDir %>/systemjs.main.prod.js": "<%= devDir %>/systemjs.main.js"
+			},
 			options: {
 				context: {
 					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).appModules.paths,
-					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.names,
 					CUSTOMER_REQUIRE_TEST: "",
-					CUSTOMER_MODULES_TEST: ""
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.name_vars,
+					CUSTOMER_MODULES_TEST: "",
+					CUSTOMER_IMPORT: customersModulesConfig.getGustomerModules(customer).appModules.imports,
+					CUSTOMER_IMPORT_TEST: ""
 				}
 			}
 		}

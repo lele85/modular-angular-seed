@@ -1,5 +1,1 @@
-define([
-	"modules/first/test/unit/DummyTest"
-], function(){
-
-});
+// import {DummyTest} from "modules/first/test/unit/DummyTest";

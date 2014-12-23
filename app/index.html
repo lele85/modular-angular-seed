@@ -23,9 +23,20 @@
 
     <body>
     	<div data-ui-view ></div>
+        <!-- @ifdef DEV -->
+        <script src="/vendor/traceur/traceur.js"></script>
+        <!-- @endif -->
+        
         <!-- build:js app.min.js -->
-        <script src="vendor/requirejs/require.js"></script>
-        <script src="main.prod.js"></script>
+        <script src="/vendor/traceur-runtime/traceur-runtime.js"></script>
+        <script src="/vendor/es6-module-loader/dist/es6-module-loader.src.js"></script>
+        <script src="/vendor/system.js/dist/system.src.js"></script>
+        <script src="/systemjs.config.prod.js"></script>
+        <!-- @include index.build.html --> 
         <!-- endbuild -->
+        <script>
+          System.baseURL = "/";
+          System.import("systemjs.main.prod");
+        </script>
     </body>
 </html>

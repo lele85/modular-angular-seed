@@ -4,5 +4,5 @@ scripts/.sass-cache
 app/vendor
 app/css
 app/scss/app.prod.scss
-app/main.prod.js
-app/main.test.js
+app/*.prod.js
+app/*.test.js

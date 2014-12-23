@@ -1,6 +1,5 @@
-define([], function(){
-	var Controller = function($scope){
-	};
+var Controller = function($scope) {
 
-	return ["$scope", Controller];
-});
+};
+
+export var DashboardController = ["$scope", Controller];

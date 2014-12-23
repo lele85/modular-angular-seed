@@ -16,7 +16,7 @@ describe("Modular seed", function() {
 		"selenium_update",
 		"sass",
 		"build",
-		"test_unit",
+		//"test_unit",
 		"selenium_update"
 	].forEach(function(task) {
 		it("should run grun task " + task, function(done) {
@@ -32,7 +32,7 @@ describe("Modular seed", function() {
 		});
 	});
 
-	it("Should serve app with customer specific conf", function(done) {
+	xit("Should serve app with customer specific conf", function(done) {
 		var serve = spawn("grunt", ["serve"], {
 			cwd: cwd,
 			stdio: "inherit"

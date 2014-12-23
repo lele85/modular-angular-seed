@@ -22,11 +22,11 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks("grunt-shell");
 	grunt.loadNpmTasks("grunt-contrib-sass");
-	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-requirejs");
+	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-usemin");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 	grunt.loadNpmTasks("grunt-angular-templates");
@@ -36,25 +36,52 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadNpmTasks("grunt-bower-task");
 
+	grunt.registerTask("systemjs", "systemjs test", function() {
+		var builder = require('systemjs-builder');
+		var path = require('path');
+		var done = this.async();
+		builder.loadConfig("../app/systemjs.config.prod.js")
+			.then(function() {
+				builder.build('systemjs.main.prod', '../bin/all.js', {
+						config: {
+							baseURL: path.resolve('../app')
+						}
+					})
+					.then(function() {
+						console.log('Build complete');
+						done();
+					})
+					.catch(function(err) {
+						console.log('Build error');
+						console.log(err);
+						done();
+					});
+			});
+
+	});
+
 	grunt.registerTask("install", "Aligns dev and bower dependencies. You should run this task after any git pull.", ["shell:npm_install", "clean:vendor", "bower:install", "clean:lib"]);
 	grunt.registerTask("serve", "Serve client application and any mock service defined in /scripts/server/app.js. Invoked with --minified builds and serve the minified version of the frontend.", minificationTasks.concat(["connect:server"]));
 	grunt.registerTask("build", "Perform a custom build of the app. With --customer you can chose wich composition of modules you want to bundle. Customer definitions are located in /scripts/Grunt.config.build.customers.js. If no customer is passed all modules are bundled together.", [
-		"clean:vendor",
-		"bower:install",
+		//"clean:vendor",
+		//"bower:install",
 		"clean:lib",
+		"clean:build",
 		"preprocess:style",
 		"preprocess:build",
 		"sass",
-		"clean:build",
-		"copy:index",
+		"copy:css",
+		"copy:systemjs",
+		"copy:vendor",
 		"copy:asset",
 		"copy:fonts",
+		"ngtemplates",
+		"systemjs",
 		"useminPrepare",
 		"usemin",
 		"concat",
 		"cssmin",
-		"ngtemplates",
-		"requirejs",
+		"uglify",
 		"clean:afterBuild"
 	]);
 	grunt.registerTask("test_unit", "Runs unit tests with karma. If you want to keep karma watching for file modification you can use the option --watch", ["preprocess:test", "karma:unit"]);

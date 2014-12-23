@@ -1,3 +1,1 @@
-define([], function(){
-
-});
+// import {DummyTest} from "modules/second/test/unit/DummyTest";
