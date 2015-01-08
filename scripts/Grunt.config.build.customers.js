@@ -29,7 +29,7 @@ module.exports = {
 				path: "\"" + modulesDir[appModule] + "/module_test\"",
 				name: appModule + "Test",
 				style: "@import \"../" + modulesDir[appModule] + "/style\";",
-				import: "import {" + appModule + "Test} from \"" + modulesDir[appModule] + "/module\";",
+				import: "import {" + appModule + "Test} from \"" + modulesDir[appModule] + "/module_test\";",
 				name_var: appModule + "Test.name"
 			};
 		});

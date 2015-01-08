@@ -1,7 +1,7 @@
 /*global System*/
 System.config({
 	// @if TEST
-	baseUrl: "/base",
+	baseURL: "/base",
 	// @endif
 	map: {
 		jquery: 'vendor/jquery/dist/jquery',

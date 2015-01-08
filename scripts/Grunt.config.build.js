@@ -60,24 +60,6 @@ module.exports = {
 			}]
 		}
 	},
-	requirejs: {
-		compile: {
-			options: {
-				baseUrl: "<%= devDir %>",
-				out: "<%= buildDir %>/app.min.js",
-				mainConfigFile: "<%= devDir %>/main.prod.js",
-				name: "main.prod",
-				include: [
-					"vendor/requirejs/require",
-					"<%= buildDir %>/templates.js"
-				],
-				optimize: "uglify2",
-				generateSourceMaps: true,
-				preserveLicenseComments: false,
-				useSourceUrl: false
-			}
-		}
-	},
 	useminPrepare: {
 		html: "<%= buildDir %>/index.html",
 		options: {
@@ -130,9 +112,9 @@ module.exports = {
 		build: {
 			files: {
 				"<%= buildDir %>/index.html": "<%= devDir %>/index.html",
-				"<%= devDir %>/main.prod.js": "<%= devDir %>/main.js",
 				"<%= devDir %>/systemjs.config.prod.js": "<%= devDir %>/systemjs.config.js",
-				"<%= devDir %>/systemjs.main.prod.js": "<%= devDir %>/systemjs.main.js"
+				"<%= devDir %>/systemjs.main.prod.js": "<%= devDir %>/systemjs.main.js",
+				"<%= devDir %>/systemjs.run.prod.js" : "<%= devDir %>/systemjs.run.js"
 			},
 			options: {
 				context: {

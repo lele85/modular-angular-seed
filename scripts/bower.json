@@ -18,11 +18,11 @@
     "tests"
   ],
   "dependencies": {
+    "es5-shim": "v4.0.5",
     "traceur-runtime": "~0.0.79",
     "es6-module-loader": "~0.10.0",
     "system.js": "~0.10.2",
     "bootstrap": "~3.3.0",
-    "requirejs": "~2.1.15",
     "angular": "~1.2.26",
     "angular-bootstrap": "~0.11.2",
     "angular-touch": "~1.2.26",

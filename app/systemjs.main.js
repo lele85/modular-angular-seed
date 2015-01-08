@@ -10,16 +10,8 @@ import lodash from "lodash";
 /* @echo CUSTOMER_IMPORT_TEST */
 var appName = "modular-angular-seed";
 var appModule = angular.module(appName, [
-/* @echo CUSTOMER_MODULES */
-// @if TEST
-,
-// @endif
-/* @echo CUSTOMER_MODULES_TEST */
+	/* @echo CUSTOMER_MODULES */
 ]);
-
-// @if TEST
-window.__karma__.start();
-// @endif
 
 if (typeof initTemplates === 'function') {
 	initTemplates();
@@ -27,6 +19,6 @@ if (typeof initTemplates === 'function') {
 
 // @if !TEST
 angular.element().ready(function() {
-  angular.bootstrap(document, [appName]);
+	angular.bootstrap(document, [appName]);
 });
 // @endif

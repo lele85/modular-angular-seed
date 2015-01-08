@@ -1,1 +1,1 @@
-// import {DummyTest} from "modules/common/test/unit/DummyTest";
+import {DummyTest} from "modules/common/test/unit/DummyTest";

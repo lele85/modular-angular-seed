@@ -28,10 +28,10 @@ module.exports = {
 			noColor: false, // If true, protractor will not use colors in its output.
 			configFile: "./protractor.config.js"
 		},
-		phantomjs: {
+		chrome: {
 			options: {
 				args: {
-					browser: "phantomjs"
+					browser: "chrome"
 				}
 			}
 		}
@@ -39,9 +39,9 @@ module.exports = {
 	preprocess: {
 		test: {
 			files: {
-				"<%= devDir %>/main.test.js" : "<%= devDir %>/main.js",
 				"<%= devDir %>/systemjs.config.test.js" : "<%= devDir %>/systemjs.config.js",
-				"<%= devDir %>/systemjs.main.test.js" : "<%= devDir %>/systemjs.main.js"
+				"<%= devDir %>/systemjs.main.test.js" : "<%= devDir %>/systemjs.main.js",
+				"<%= devDir %>/systemjs.run.test.js" : "<%= devDir %>/systemjs.run.js"
 			},
 			options: {
 				context: {

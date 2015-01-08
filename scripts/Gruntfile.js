@@ -25,7 +25,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-copy");
-	grunt.loadNpmTasks("grunt-contrib-requirejs");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-usemin");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
@@ -85,7 +84,7 @@ module.exports = function(grunt) {
 		"clean:afterBuild"
 	]);
 	grunt.registerTask("test_unit", "Runs unit tests with karma. If you want to keep karma watching for file modification you can use the option --watch", ["preprocess:test", "karma:unit"]);
-	grunt.registerTask("test_e2e", "Runs e2e protractor specs. In order to perform e2e test you should serve a version of the app with grunt server and selenium server.", ["protractor:phantomjs"]);
+	grunt.registerTask("test_e2e", "Runs e2e protractor specs. In order to perform e2e test you should serve a version of the app with grunt server and selenium server.", ["protractor:chrome"]);
 	grunt.registerTask("selenium", "Starts selenium server", ["shell:webdriver_start"]);
 	grunt.registerTask("selenium_update", "Download and updates selenium web runner tasks", ["shell:webdriver_update"]);
 	grunt.registerTask("test_seed", "", ["shell:testSeed"]);

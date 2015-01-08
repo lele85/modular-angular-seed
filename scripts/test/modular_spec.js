@@ -16,7 +16,6 @@ describe("Modular seed", function() {
 		"selenium_update",
 		"sass",
 		"build",
-		//"test_unit",
 		"selenium_update"
 	].forEach(function(task) {
 		it("should run grun task " + task, function(done) {
