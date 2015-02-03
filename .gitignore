@@ -6,3 +6,4 @@ app/css
 app/scss/app.prod.scss
 app/*.prod.js
 app/*.test.js
+app/index.prod.html

@@ -5,7 +5,7 @@ module.exports = function(conf) {
         basePath: "../app",
         frameworks: ["jasmine"],
         reporters: ["dots"],
-        browsers: ["SlimerJS"],
+        browsers: ["Chrome"],
         //browsers: ["Chrome", "Firefox", "Safari", "Opera","PhantomJS"],
 
         // these are default values anyway
@@ -16,13 +16,14 @@ module.exports = function(conf) {
             { pattern: 'modules/**/*.js', included: false },
             { pattern: 'systemjs.main.test.js', included: false },
             { pattern: 'modules/**/*.html', included: false },
+            { pattern: 'lib/*.js', included: false },
             'vendor/traceur-runtime/traceur-runtime.js',
             '../scripts/traceur-runtime-patch.js',
             'vendor/es6-module-loader/dist/es6-module-loader.src.js',
             'vendor/system.js/dist/system.src.js',
             { pattern: 'vendor/**/*.js', included: false },
             'systemjs.config.test.js',
-            '../scripts/systemjs.run.js'
+            'systemjs.run.test.js'
         ],
         logLevel: conf.LOG_INFO,
         preprocessors: {

@@ -109,18 +109,40 @@ module.exports = {
 	preprocess: {
 		options: {
 			context: {
+				DEV: true,
 				TEST: false
 			}
 		},
 		build: {
 			files: {
-				"<%= buildDir %>/index.html": "<%= devDir %>/index.html",
+				"<%= devDir %>/index.prod.html": "<%= devDir %>/index.html",
+				"<%= buildDir %>/index.html": "<%= devDir %>/index.prod.html",
 				"<%= devDir %>/systemjs.config.prod.js": "<%= devDir %>/systemjs.config.js",
 				"<%= devDir %>/systemjs.main.prod.js": "<%= devDir %>/systemjs.main.js",
 				"<%= devDir %>/systemjs.run.prod.js" : "<%= devDir %>/systemjs.run.js"
 			},
 			options: {
 				context: {
+					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).appModules.paths,
+					CUSTOMER_REQUIRE_TEST: "",
+					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.name_vars,
+					CUSTOMER_MODULES_TEST: "",
+					CUSTOMER_IMPORT: customersModulesConfig.getGustomerModules(customer).appModules.imports,
+					CUSTOMER_IMPORT_TEST: ""
+				}
+			}
+		},
+		build_min: {
+			files: {
+				"<%= devDir %>/index.prod.html": "<%= devDir %>/index.html",
+				"<%= buildDir %>/index.html": "<%= devDir %>/index.prod.html",
+				"<%= devDir %>/systemjs.config.prod.js": "<%= devDir %>/systemjs.config.js",
+				"<%= devDir %>/systemjs.main.prod.js": "<%= devDir %>/systemjs.main.js",
+				"<%= devDir %>/systemjs.run.prod.js" : "<%= devDir %>/systemjs.run.js"
+			},
+			options: {
+				context: {
+					DEV: false,
 					CUSTOMER_REQUIRE: customersModulesConfig.getGustomerModules(customer).appModules.paths,
 					CUSTOMER_REQUIRE_TEST: "",
 					CUSTOMER_MODULES: customersModulesConfig.getGustomerModules(customer).appModules.name_vars,

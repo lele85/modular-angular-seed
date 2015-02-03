@@ -32,7 +32,10 @@
         <script src="/vendor/es6-module-loader/dist/es6-module-loader.src.js"></script>
         <script src="/vendor/system.js/dist/system.src.js"></script>
         <script src="/systemjs.config.prod.js"></script>
-        <!-- @include index.build.html --> 
+        <!-- @if !DEV !>
+        <script src="/all.js"></script>
+        <script src="/templates.js"></script>
+        <!-- @endif --> 
         <script src="/systemjs.run.prod.js"></script>
         <!-- endbuild -->
     </body>

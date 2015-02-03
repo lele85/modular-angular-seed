@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 		"clean:lib",
 		"clean:build",
 		"preprocess:style",
-		"preprocess:build",
+		"preprocess:build_min",
 		"sass",
 		"copy:css",
 		"copy:systemjs",

@@ -41,9 +41,7 @@
     "chai": "*",
     "mocha": "*",
     "systemjs-builder": "0.4.5",
-    "traceur": "^0.0.74",
-    "karma-slimerjs-launcher": "git://github.com/karma-runner/karma-slimerjs-launcher#master",
-    "slimerjs": "~0.9.2"
+    "traceur": "^0.0.74"
   },
   "scripts": {
     "test": "node node_modules/protractor/bin/webdriver-manager update && ./node_modules/.bin/mocha test/"
