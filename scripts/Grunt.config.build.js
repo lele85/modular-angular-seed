@@ -3,7 +3,7 @@ var grunt = require("grunt");
 var customer = grunt.option("customer");
 module.exports = {
 	clean: {
-		afterBuild: ["<%= buildDir %>/templates.js", "<%= buildDir %>/all.js", "<%= buildDir %>/tmp","<%= buildDir %>/vendor", "<%= buildDir %>/systemjs.config.prod.js", "<%= buildDir %>/systemjs.config.run.js"],
+		afterBuild: ["<%= buildDir %>/templates.js", "<%= buildDir %>/all.js", "<%= buildDir %>/tmp","<%= buildDir %>/vendor", "<%= buildDir %>/systemjs.config.prod.js", "<%= buildDir %>/systemjs.run.prod.js"],
 		build: ["<%= buildDir %>"],
 		options: {
 			force: true
