@@ -1,6 +1,5 @@
 var express = require("express"),
-	app = express(),
-	process = require("process");
+	app = express();
 
 var env = {
 	"PROD": {
@@ -15,4 +14,5 @@ var env = {
 
 var selectedEnv = process.argv[2] || "DEV";
 app.use(express.static(env[selectedEnv].directory));
+console.log("Serving app: http://localhost:8000");
 app.listen(8000);
