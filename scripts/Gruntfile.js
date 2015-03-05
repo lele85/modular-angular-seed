@@ -35,12 +35,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-protractor-runner");
 	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadNpmTasks("grunt-bower-task");
+	grunt.loadNpmTasks('grunt-wiredep');
 
 	grunt.registerTask("install", "Aligns dev and bower dependencies. You should run this task after any git pull.", ["shell:npm_install", "clean:vendor", "bower:install", "clean:lib"]);
-	grunt.registerTask("serve", "Serve client application and any mock service defined in /scripts/server/app.js. Invoked with --minified builds and serve the minified version of the frontend.", minificationTasks.concat(["connect:server"]));
+	grunt.registerTask("serve", "Serve client application and any mock service defined in /scripts/server/app.js. Invoked with --minified builds and serve the minified version of the frontend.", minificationTasks.concat(["wiredep","connect:server"]));
 	grunt.registerTask("build", "Perform a custom build of the app. With --customer you can chose wich composition of modules you want to bundle. Customer definitions are located in /scripts/Grunt.config.build.customers.js. If no customer is passed all modules are bundled together.", [
 		"clean:vendor",
 		"bower:install",
+		"wiredep",
 		"clean:lib",
 		"preprocess:style",
 		"preprocess:build",

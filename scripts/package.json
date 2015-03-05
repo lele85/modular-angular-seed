@@ -38,7 +38,8 @@
         "proxy-middleware": "*",
         "request": "*",
         "chai" : "*",
-        "mocha" : "*"
+        "mocha" : "*",
+        "grunt-wiredep": "1.8.0"
     },
     "scripts": {
         "test": "node node_modules/protractor/bin/webdriver-manager update && ./node_modules/.bin/mocha test/"
