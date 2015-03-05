@@ -119,5 +119,14 @@ module.exports = {
 				}
 			}
 		}
-	}
+	},
+	wiredep: {
+      options: {
+        cwd: '<%= devDir %>'
+      },
+      app: {
+        src: ['<%= devDir %>/index.html'],
+        ignorePath:  /\.\.\//
+      }
+    }
 };
