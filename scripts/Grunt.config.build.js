@@ -85,7 +85,7 @@ module.exports = {
 	},
 
 	ngtemplates: {
-		retirementPlannning: {
+		all: {
 			cwd: "<%= devDir %>",
 			src: "**/*.tpl.html",
 			dest: "<%= buildDir %>/templates.js",
